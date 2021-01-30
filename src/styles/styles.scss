@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.family {
+  font-family: "Quicksand", sans-serif !important;
+}
+
+.mt {
+  margin-top: 95px;
+}
+
+// Material UI input field custom style
+.MuiFormLabel-root.Mui-focused {
+  color: #02a39b !important;
+}
+
+.MuiFilledInput-underline.Mui-focused:after {
+  border-color: #02a39b !important;
+}
+
+.MuiFilledInput-underline:after {
+  border-color: #02a39b !important;
+}
+
+.mui-btn-contained {
+  background-color: #01645f !important;
+  transition: all 0.3s !important;
+  text-transform: none !important;
+  font-family: Quicksand, sans-serif;
+  outline: none !important;
+  color: white !important;
+  &:hover {
+    background-color: #02a39b !important;
+  }
+}
