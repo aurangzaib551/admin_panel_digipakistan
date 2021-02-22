@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  font-family: "Quicksand", sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
 html {
@@ -8,7 +8,7 @@ html {
 }
 
 .family {
-  font-family: "Quicksand", sans-serif !important;
+  font-family: Montserrat, sans-serif !important;
 }
 
 .mt {
@@ -16,6 +16,11 @@ html {
 }
 
 // Material UI input field custom style
+
+.form {
+  width: 500px;
+}
+
 .MuiFormLabel-root.Mui-focused {
   color: #02a39b !important;
 }
@@ -39,3 +44,27 @@ html {
     background-color: #02a39b !important;
   }
 }
+
+// Loader
+.loader {
+  color: white !important;
+  width: 23px !important;
+  height: 23px !important;
+  margin: 3px 0;
+}
+
+.outline {
+  outline: none !important;
+}
+
+@media only screen and (max-width: 576px) {
+  .form {
+    width: 80vw;
+  }
+}
+
+// variables
+@import "./variables";
+
+// Nav
+@import "./nav/nav";
