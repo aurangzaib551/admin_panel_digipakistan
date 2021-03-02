@@ -22,7 +22,6 @@ const Dashboard = ({ uid, signOut, admin, getData }) => {
   return getData ? (
     <>
       <Navbar />
-      <button onClick={() => signOut(replace)}>Sign Out</button>
     </>
   ) : (
     <Loader />

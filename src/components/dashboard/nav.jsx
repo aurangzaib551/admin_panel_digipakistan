@@ -9,11 +9,15 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import SmsIcon from "@material-ui/icons/SmsOutlined";
+import ApplicationIcon from "@material-ui/icons/Assignment";
 import BackIcon from "@material-ui/icons/KeyboardBackspace";
 import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import { signOut } from "../../store/actions/authActions";
+import Button from "@material-ui/core/Button";
+import HomeIcon from "@material-ui/icons/Home";
 
-const Nav = () => {
+const Nav = ({ signOut }) => {
   // State
   const [open, setOpen] = useState(false);
   const handleDrawer = () => {
@@ -23,7 +27,7 @@ const Nav = () => {
   };
 
   // Object Destructuring
-  const { push } = useHistory();
+  const { push, replace } = useHistory();
 
   const onCloseDrawer = () => {
     setOpen((prevState) => !prevState);
@@ -35,14 +39,33 @@ const Nav = () => {
       push(link);
     }, 400);
   };
+
+  // Signing Out user
+  const handleSignOut = () => {
+    setTimeout(() => {
+      signOut(replace);
+    }, 400);
+  };
   return (
     <nav>
       <AppBar position="relative" style={{ backgroundColor: "#fff" }}>
-        <Toolbar>
-          <IconButton onClick={handleDrawer} className="outline me-3">
-            <MenuIcon />
-          </IconButton>
-          <h1 className="mb-0 text-dark fw-bold">Dashboard</h1>
+        <Toolbar className="d-flex flex-column flex-sm-row py-2">
+          <div className="d-flex align-items-center">
+            <IconButton onClick={handleDrawer} className="outline me-3">
+              <MenuIcon />
+            </IconButton>
+            <h1 className="mb-0 text-dark fw-bold">Dashboard</h1>
+          </div>
+
+          <div className="d-flex flex-column flex-sm-row align-items-center align-items-sm-start justify-content-sm-end w-100">
+            <Button
+              onClick={handleSignOut}
+              className="outline"
+              variant="outlined"
+            >
+              Sign Out
+            </Button>
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer anchor="left" open={open} onClose={onCloseDrawer}>
@@ -54,11 +77,23 @@ const Nav = () => {
           </div>
           <Divider />
           <List>
-            <ListItem button onClick={() => go("/sms")}>
+            <ListItem button onClick={() => go("/")}>
               <ListItemIcon>
-                <SmsIcon />
+                <HomeIcon />
               </ListItemIcon>
-              <ListItemText>SMS</ListItemText>
+              <ListItemText>Dashboard</ListItemText>
+            </ListItem>
+            <ListItem button onClick={() => go("/applicants")}>
+              <ListItemIcon>
+                <ApplicationIcon />
+              </ListItemIcon>
+              <ListItemText>Applicants Data</ListItemText>
+            </ListItem>
+            <ListItem button onClick={() => go("/registeredUser")}>
+              <ListItemIcon>
+                <ApplicationIcon />
+              </ListItemIcon>
+              <ListItemText>Registered Users</ListItemText>
             </ListItem>
           </List>
         </div>
@@ -67,4 +102,10 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: (push) => dispatch(signOut(push)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Nav);

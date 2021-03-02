@@ -1,0 +1,23 @@
+.applicants {
+  height: 600px;
+  overflow: auto;
+  border-left: 2px solid $primary;
+  border-top: 2px solid $primary;
+  border-bottom: 2px solid $primary;
+}
+
+.option {
+  width: 150px !important;
+}
+
+@media only screen and (max-width: 1399px) {
+  .applicants {
+    border-bottom: none;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .applicants {
+    border-left: none;
+  }
+}

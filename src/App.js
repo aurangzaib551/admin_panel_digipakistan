@@ -3,8 +3,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Loader from "./loader/loader";
 const LogIn = lazy(() => import("./pages/logIn"));
 const Dashboard = lazy(() => import("./pages/dashboard"));
-const SMS = lazy(() => import("./pages/sms"));
+const ApplicantsData = lazy(() => import("./pages/applicantsData"));
 const NotFound = lazy(() => import("./pages/notFound"));
+const RegisteredUsers = lazy(() => import("./pages/registeredUsers"));
+const Edit = lazy(() => import("./pages/edit"));
 
 const App = () => {
   return (
@@ -12,7 +14,9 @@ const App = () => {
       <Switch>
         <Route path="/" exact component={LogIn} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/sms" component={SMS} />
+        <Route path="/applicants" component={ApplicantsData} />
+        <Route path="/registeredUser" component={RegisteredUsers} />
+        <Route path="/edit/:id" component={Edit} />
         <Route path="/not-found" component={NotFound} />
         <Redirect to="/not-found" />
       </Switch>

@@ -21,6 +21,12 @@ html {
   width: 500px;
 }
 
+.form-control {
+  &:focus {
+    box-shadow: 0 0 0.25rem #02a39b !important;
+  }
+}
+
 .MuiFormLabel-root.Mui-focused {
   color: #02a39b !important;
 }
@@ -68,3 +74,6 @@ html {
 
 // Nav
 @import "./nav/nav";
+
+// Applicants Data
+@import "./applicants_data/applicantsData";

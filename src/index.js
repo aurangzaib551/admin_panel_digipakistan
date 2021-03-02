@@ -10,6 +10,7 @@ import thunk from "redux-thunk";
 import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
 import { reduxFirestore, getFirestore } from "redux-firestore";
 import fbConfig from "./config/fbConfig";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 const store = createStore(
   rootReducer,
