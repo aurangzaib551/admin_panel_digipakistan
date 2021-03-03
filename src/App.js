@@ -7,6 +7,7 @@ const ApplicantsData = lazy(() => import("./pages/applicantsData"));
 const NotFound = lazy(() => import("./pages/notFound"));
 const RegisteredUsers = lazy(() => import("./pages/registeredUsers"));
 const Edit = lazy(() => import("./pages/edit"));
+const UploadLecture = lazy(() => import("./pages/uploadLecture"));
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/applicants" component={ApplicantsData} />
         <Route path="/registeredUser" component={RegisteredUsers} />
         <Route path="/edit/:id" component={Edit} />
+        <Route path="/uploadLecture" component={UploadLecture} />
         <Route path="/not-found" component={NotFound} />
         <Redirect to="/not-found" />
       </Switch>

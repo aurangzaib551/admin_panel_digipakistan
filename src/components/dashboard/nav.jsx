@@ -16,6 +16,7 @@ import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
 import Button from "@material-ui/core/Button";
 import HomeIcon from "@material-ui/icons/Home";
+import SchoolIcon from "@material-ui/icons/School";
 
 const Nav = ({ signOut }) => {
   // State
@@ -94,6 +95,12 @@ const Nav = ({ signOut }) => {
                 <ApplicationIcon />
               </ListItemIcon>
               <ListItemText>Registered Users</ListItemText>
+            </ListItem>
+            <ListItem button onClick={() => go("/uploadLecture")}>
+              <ListItemIcon>
+                <SchoolIcon />
+              </ListItemIcon>
+              <ListItemText>Upload Lecture</ListItemText>
             </ListItem>
           </List>
         </div>

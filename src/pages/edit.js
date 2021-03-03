@@ -313,6 +313,7 @@ class Edit extends Component {
                 </label>
                 <input
                   type="text"
+                  disabled
                   value={this.state.firstCourseName}
                   onChange={this.handleAnotherChange}
                   name="firstCourseName"
@@ -367,6 +368,7 @@ class Edit extends Component {
                 </label>
                 <input
                   type="text"
+                  disabled
                   onChange={this.handleAnotherChange}
                   name="secondCourseName"
                   value={this.state.secondCourseName}
@@ -421,6 +423,7 @@ class Edit extends Component {
                 <input
                   type="text"
                   name="thirdCourseName"
+                  disabled
                   onChange={this.handleAnotherChange}
                   value={this.state.thirdCourseName}
                   className="form-control"
