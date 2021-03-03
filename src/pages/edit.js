@@ -103,40 +103,40 @@ class Edit extends Component {
           this.setState({
             loading: true,
             editData: data.data(),
-            firstCourseTitle: data.data().course
+            firstCourseTitle: data.data().course[0]
               ? data.data().course[0]["First Course Title"]
               : "",
-            firstCourseName: data.data().course
+            firstCourseName: data.data().course[0]
               ? data.data().course[0]["First Course Name"].name
               : "",
-            firstCourseStatus: data.data().course
+            firstCourseStatus: data.data().course[0]
               ? data.data().course[0]["First Course Name"].status
               : false,
-            firstCourseLink: data.data().course
+            firstCourseLink: data.data().course[0]
               ? data.data().course[0]["First Course Name"].link
               : "",
-            secondCourseTitle: data.data().course
+            secondCourseTitle: data.data().course[1]
               ? data.data().course[1]["Second Course Title"]
               : "",
-            secondCourseName: data.data().course
+            secondCourseName: data.data().course[1]
               ? data.data().course[1]["Second Course Name"].name
               : "",
-            secondCourseStatus: data.data().course
+            secondCourseStatus: data.data().course[1]
               ? data.data().course[1]["Second Course Name"].status
               : false,
-            secondCourseLink: data.data().course
+            secondCourseLink: data.data().course[1]
               ? data.data().course[1]["Second Course Name"].link
               : "",
-            thirdCourseTitle: data.data().course
+            thirdCourseTitle: data.data().course[2]
               ? data.data().course[2]["Third Course Title"]
               : "",
-            thirdCourseName: data.data().course
+            thirdCourseName: data.data().course[2]
               ? data.data().course[2]["Third Course Name"].name
               : "",
-            thirdCourseStatus: data.data().course
+            thirdCourseStatus: data.data().course[2]
               ? data.data().course[2]["Third Course Name"].status
               : false,
-            thirdCourseLink: data.data().course
+            thirdCourseLink: data.data().course[2]
               ? data.data().course[2]["Third Course Name"].link
               : "",
           });
