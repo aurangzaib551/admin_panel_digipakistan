@@ -12,6 +12,8 @@ import { reduxFirestore, getFirestore } from "redux-firestore";
 import fbConfig from "./config/fbConfig";
 import "@fortawesome/fontawesome-free/css/all.css";
 
+window.onbeforeunload = fbConfig.auth().signOut();
+
 const store = createStore(
   rootReducer,
   compose(
