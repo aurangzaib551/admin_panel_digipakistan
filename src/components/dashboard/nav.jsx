@@ -102,6 +102,12 @@ const Nav = ({ signOut }) => {
               </ListItemIcon>
               <ListItemText>Upload Lecture</ListItemText>
             </ListItem>
+            <ListItem button onClick={() => go("/teachers")}>
+              <ListItemIcon>
+                <ApplicationIcon />
+              </ListItemIcon>
+              <ListItemText>Teachers Applications</ListItemText>
+            </ListItem>
           </List>
         </div>
       </Drawer>

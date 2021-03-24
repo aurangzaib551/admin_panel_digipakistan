@@ -8,6 +8,7 @@ const NotFound = lazy(() => import("./pages/notFound"));
 const RegisteredUsers = lazy(() => import("./pages/registeredUsers"));
 const Edit = lazy(() => import("./pages/edit"));
 const UploadLecture = lazy(() => import("./pages/uploadLecture"));
+const Teachers = lazy(() => import("./pages/teachers"));
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/applicants" component={ApplicantsData} />
         <Route path="/registeredUser" component={RegisteredUsers} />
+        <Route path="/teachers" component={Teachers} />
         <Route path="/edit/:id" component={Edit} />
         <Route path="/uploadLecture" component={UploadLecture} />
         <Route path="/not-found" component={NotFound} />
