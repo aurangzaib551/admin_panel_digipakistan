@@ -14,6 +14,12 @@ export const uploadLecture = (collection, topic, subTopic, video) => {
           },
         ],
       })
+      .then(() => {
+        firestore.collection("Notifications").add({
+          name: `${collection} lecture has been uploaded`,
+          createdAt: new Date(),
+        });
+      })
       .then(() =>
         dispatch({
           type: "LECTURE_UPLOADED",
@@ -32,6 +38,12 @@ export const updateLecture = (watch, collection, topic) => {
         .doc(topic)
         .update({
           watch,
+        })
+        .then(() => {
+          firestore.collection("Notifications").add({
+            name: `${collection} lecture has been uploaded`,
+            createdAt: new Date(),
+          });
         })
         .then(() =>
           dispatch({

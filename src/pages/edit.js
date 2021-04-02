@@ -1411,13 +1411,11 @@ class Edit extends Component {
             </>
           )}
 
-          {this.state.secondCourseTitle && (
-            <>
-              <div className="mb-3">
-                <label htmlFor="Second Course" className="form-label fw-bold">
-                  Second Course
-                </label>
-                {/* <input
+          <div className="mb-3">
+            <label htmlFor="Second Course" className="form-label fw-bold">
+              Second Course
+            </label>
+            {/* <input
                   type="text"
                   disabled
                   onChange={this.handleAnotherChange}
@@ -1427,32 +1425,33 @@ class Edit extends Component {
                   id="Second Course"
                 /> */}
 
-                <select
-                  onChange={this.handleSecondCourseTitle}
-                  name="secondCourseTitle"
-                  value={this.state.secondCourseTitle}
-                  className="form-select"
-                  id="Second Course"
-                >
-                  <option value="Fast Track Technical Program">
-                    Fast Track Technical Program
-                  </option>
-                  <option value="Fast Track Non-Technical Program">
-                    Fast Track Non-Technical Program
-                  </option>
-                  <option value="Associate Certification Program">
-                    Associate Certification Program
-                  </option>
-                </select>
-              </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="Second Course Category"
-                  className="form-label fw-bold"
-                >
-                  Second Course Category
-                </label>
-                {/* <input
+            <select
+              onChange={this.handleSecondCourseTitle}
+              name="secondCourseTitle"
+              value={this.state.secondCourseTitle}
+              className="form-select"
+              id="Second Course"
+            >
+              <option value="">Choose</option>
+              <option value="Fast Track Technical Program">
+                Fast Track Technical Program
+              </option>
+              <option value="Fast Track Non-Technical Program">
+                Fast Track Non-Technical Program
+              </option>
+              <option value="Associate Certification Program">
+                Associate Certification Program
+              </option>
+            </select>
+          </div>
+          <div className="mb-3">
+            <label
+              htmlFor="Second Course Category"
+              className="form-label fw-bold"
+            >
+              Second Course Category
+            </label>
+            {/* <input
                   type="text"
                   disabled
                   onChange={this.handleAnotherChange}
@@ -1462,197 +1461,196 @@ class Edit extends Component {
                   id="Second Course Category"
                 /> */}
 
-                <select
-                  onChange={this.handleSecondCourseName}
-                  name="secondCourseName"
-                  value={this.state.secondCourseName}
-                  className="form-select"
-                  id="Second Course Category"
-                >
-                  {this.state.secondCourseTitle ===
-                    "Fast Track Technical Program" && (
-                    <>
-                      <option value="">Choose</option>
-                      <option value="CompTIA It Fundamentals">
-                        CompTIA It Fundamentals
-                      </option>
-                      <option value="Microsoft Front End Development">
-                        Microsoft Front End Development
-                      </option>
-                      <option value="ASP.NET Web Applications">
-                        ASP.NET Web Applications
-                      </option>
-                      <option value="PHP Laravel">PHP Laravel</option>
-                      <option value="MERN Stack">MERN Stack</option>
-                      <option value="SQL Server Specialist">
-                        SQL Server Specialist
-                      </option>
-                      <option value="Oracle Database Administrator (OCP : 12C DBA)">
-                        Oracle Database Administrator (OCP : 12C DBA)
-                      </option>
-                      <option value="Android Apps Development">
-                        Android Apps Development
-                      </option>
-                      <option value="Kotlin Mobile Apps Development">
-                        Kotlin Mobile Apps Development
-                      </option>
-                      <option value="IOS Apps Development">
-                        IOS Apps Development
-                      </option>
-                      <option value="Xamarin Mobile Apps Development">
-                        Xamarin Mobile Apps Development
-                      </option>
-                      <option value="React Native Web &amp; Apps Development">
-                        React Native Web &amp; Apps Development
-                      </option>
-                      <option value="Game Development">Game Development</option>
-                      <option value="Cisco CCNA Networking">
-                        Cisco CCNA Networking
-                      </option>
-                      <option value="CompTIA Security + (SYO - 601)">
-                        CompTIA Security + (SYO - 601)
-                      </option>
-                      <option value="Certified Ethical Hacking">
-                        Certified Ethical Hacking
-                      </option>
-                      <option value="Certified Hacking Forensic Investigator">
-                        Certified Hacking Forensic Investigator
-                      </option>
-                      <option value="Penetration Testing Security Analyst">
-                        Penetration Testing Security Analyst
-                      </option>
-                      <option value="Certified Information System Auditor">
-                        Certified Information System Auditor
-                      </option>
-                      <option value="Certified Information Security Manager">
-                        Certified Information Security Manager
-                      </option>
-                      <option value="AWS Practitioner">AWS Practitioner</option>
-                      <option value="AWS Solution Architect">
-                        AWS Solution Architect
-                      </option>
-                      <option value="AWS SysOps Administrator">
-                        AWS SysOps Administrator
-                      </option>
-                      <option value="AWS Developer Associate">
-                        AWS Developer Associate
-                      </option>
-                      <option value="Microsoft Azure Cloud Fundamentals">
-                        Microsoft Azure Cloud Fundamentals
-                      </option>
-                      <option value="Microsoft Cloud Administrator 103 - 104">
-                        Microsoft Cloud Administrator 103 - 104
-                      </option>
-                      <option value="Google Cloud Engineer">
-                        Google Cloud Engineer
-                      </option>
-                      <option value="Python For Everyone">
-                        Python for Everyone
-                      </option>
-                      <option value="Machine Learning &amp; AI">
-                        Machine Learning &amp; AI
-                      </option>
-                      <option value="Data Science">Data Science</option>
-                      <option value="Big Data &amp; Headoop Ecosystem">
-                        Big Data &amp; Headoop Ecosystem
-                      </option>
-                    </>
-                  )}
-                  {this.state.secondCourseTitle ===
-                    "Fast Track Non-Technical Program" && (
-                    <>
-                      <option value="">Choose</option>
-                      <option value="QuickBooks ERP">QuickBooks ERP</option>
-                      <option value="SAP ERP">SAP ERP</option>
-                      <option value="Project Management Professional (PMP)">
-                        Project Management Professional (PMP)
-                      </option>
-                      <option value="Amazon FBA Business">
-                        Amazon FBA Business
-                      </option>
-                      <option value="Search Engine Optimization (SEO)">
-                        Search Engine Optimization (SEO)
-                      </option>
-                      <option value="Digital Marketing">
-                        Digital Marketing
-                      </option>
-                      <option value="Social Media Marketing">
-                        Social Media Marketing
-                      </option>
-                      <option value="Graphics Design">Graphic Design</option>
-                      <option value="UI / UX Design">UI / UX Design</option>
-                      <option value="Interior Design">Interior Design</option>
-                      <option value="3D Maya Max Animation">
-                        3D Maya Max Animation
-                      </option>
-                      <option value="Video Editing">Video Editing</option>
-                      <option value="AutoCad">AutoCad</option>
-                      <option value="Microsoft Office 365">
-                        Microsoft Office 365
-                      </option>
-                      <option value="Enterpreneurship">Enterpreneurship</option>
-                    </>
-                  )}
-                  {this.state.secondCourseTitle ===
-                    "Associate Certification Program" && (
-                    <>
-                      <option value="">Choose</option>
-                      <option value="Digital Forensic Cyber Security">
-                        Digital Forensic Cyber Security
-                      </option>
-                      <option value="Penetration Testing Cyber Security">
-                        Penetration Testing Cyber Security
-                      </option>
-                      <option value="CISSP Cyber Security Professional">
-                        CISSP Cyber Security Professional
-                      </option>
-                      <option value="Artificial Intelligence">
-                        Artificial Intelligence
-                      </option>
-                      <option value="AWS Cloud Computing">
-                        AWS Cloud Computing
-                      </option>
-                      <option value="Internet of Things (IoT)">
-                        Internet of Things (IoT)
-                      </option>
-                      <option value="BlockChain Technology">
-                        BlockChain Technology
-                      </option>
-                      <option value="Full Stack Web Development">
-                        Full Stack Web Development (MCSA)
-                      </option>
-                    </>
-                  )}
-                </select>
-              </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="Second Course Status"
-                  className="form-label fw-bold"
-                >
-                  Second Course Status
-                </label>
-                <select
-                  onChange={this.handleAnotherLMS}
-                  name="secondCourseStatus"
-                  value={this.state.secondCourseStatus}
-                  className="form-select"
-                  id="Second Course Status"
-                >
+            <select
+              onChange={this.handleSecondCourseName}
+              name="secondCourseName"
+              value={this.state.secondCourseName}
+              className="form-select"
+              id="Second Course Category"
+            >
+              {this.state.secondCourseTitle === "" && (
+                <option value="">Choose</option>
+              )}
+
+              {this.state.secondCourseTitle ===
+                "Fast Track Technical Program" && (
+                <>
                   <option value="">Choose</option>
-                  <option value={true}>Open</option>
-                  <option value={false}>Close</option>
-                </select>
-              </div>
-            </>
-          )}
-          {this.state.thirdCourseTitle && (
-            <>
-              <div className="mb-3">
-                <label htmlFor="Third Course" className="form-label fw-bold">
-                  Third Course
-                </label>
-                {/* <input
+                  <option value="CompTIA It Fundamentals">
+                    CompTIA It Fundamentals
+                  </option>
+                  <option value="Microsoft Front End Development">
+                    Microsoft Front End Development
+                  </option>
+                  <option value="ASP.NET Web Applications">
+                    ASP.NET Web Applications
+                  </option>
+                  <option value="PHP Laravel">PHP Laravel</option>
+                  <option value="MERN Stack">MERN Stack</option>
+                  <option value="SQL Server Specialist">
+                    SQL Server Specialist
+                  </option>
+                  <option value="Oracle Database Administrator (OCP : 12C DBA)">
+                    Oracle Database Administrator (OCP : 12C DBA)
+                  </option>
+                  <option value="Android Apps Development">
+                    Android Apps Development
+                  </option>
+                  <option value="Kotlin Mobile Apps Development">
+                    Kotlin Mobile Apps Development
+                  </option>
+                  <option value="IOS Apps Development">
+                    IOS Apps Development
+                  </option>
+                  <option value="Xamarin Mobile Apps Development">
+                    Xamarin Mobile Apps Development
+                  </option>
+                  <option value="React Native Web &amp; Apps Development">
+                    React Native Web &amp; Apps Development
+                  </option>
+                  <option value="Game Development">Game Development</option>
+                  <option value="Cisco CCNA Networking">
+                    Cisco CCNA Networking
+                  </option>
+                  <option value="CompTIA Security + (SYO - 601)">
+                    CompTIA Security + (SYO - 601)
+                  </option>
+                  <option value="Certified Ethical Hacking">
+                    Certified Ethical Hacking
+                  </option>
+                  <option value="Certified Hacking Forensic Investigator">
+                    Certified Hacking Forensic Investigator
+                  </option>
+                  <option value="Penetration Testing Security Analyst">
+                    Penetration Testing Security Analyst
+                  </option>
+                  <option value="Certified Information System Auditor">
+                    Certified Information System Auditor
+                  </option>
+                  <option value="Certified Information Security Manager">
+                    Certified Information Security Manager
+                  </option>
+                  <option value="AWS Practitioner">AWS Practitioner</option>
+                  <option value="AWS Solution Architect">
+                    AWS Solution Architect
+                  </option>
+                  <option value="AWS SysOps Administrator">
+                    AWS SysOps Administrator
+                  </option>
+                  <option value="AWS Developer Associate">
+                    AWS Developer Associate
+                  </option>
+                  <option value="Microsoft Azure Cloud Fundamentals">
+                    Microsoft Azure Cloud Fundamentals
+                  </option>
+                  <option value="Microsoft Cloud Administrator 103 - 104">
+                    Microsoft Cloud Administrator 103 - 104
+                  </option>
+                  <option value="Google Cloud Engineer">
+                    Google Cloud Engineer
+                  </option>
+                  <option value="Python For Everyone">
+                    Python for Everyone
+                  </option>
+                  <option value="Machine Learning &amp; AI">
+                    Machine Learning &amp; AI
+                  </option>
+                  <option value="Data Science">Data Science</option>
+                  <option value="Big Data &amp; Headoop Ecosystem">
+                    Big Data &amp; Headoop Ecosystem
+                  </option>
+                </>
+              )}
+              {this.state.secondCourseTitle ===
+                "Fast Track Non-Technical Program" && (
+                <>
+                  <option value="">Choose</option>
+                  <option value="QuickBooks ERP">QuickBooks ERP</option>
+                  <option value="SAP ERP">SAP ERP</option>
+                  <option value="Project Management Professional (PMP)">
+                    Project Management Professional (PMP)
+                  </option>
+                  <option value="Amazon FBA Business">
+                    Amazon FBA Business
+                  </option>
+                  <option value="Search Engine Optimization (SEO)">
+                    Search Engine Optimization (SEO)
+                  </option>
+                  <option value="Digital Marketing">Digital Marketing</option>
+                  <option value="Social Media Marketing">
+                    Social Media Marketing
+                  </option>
+                  <option value="Graphics Design">Graphic Design</option>
+                  <option value="UI / UX Design">UI / UX Design</option>
+                  <option value="Interior Design">Interior Design</option>
+                  <option value="3D Maya Max Animation">
+                    3D Maya Max Animation
+                  </option>
+                  <option value="Video Editing">Video Editing</option>
+                  <option value="AutoCad">AutoCad</option>
+                  <option value="Microsoft Office 365">
+                    Microsoft Office 365
+                  </option>
+                  <option value="Enterpreneurship">Enterpreneurship</option>
+                </>
+              )}
+              {this.state.secondCourseTitle ===
+                "Associate Certification Program" && (
+                <>
+                  <option value="">Choose</option>
+                  <option value="Digital Forensic Cyber Security">
+                    Digital Forensic Cyber Security
+                  </option>
+                  <option value="Penetration Testing Cyber Security">
+                    Penetration Testing Cyber Security
+                  </option>
+                  <option value="CISSP Cyber Security Professional">
+                    CISSP Cyber Security Professional
+                  </option>
+                  <option value="Artificial Intelligence">
+                    Artificial Intelligence
+                  </option>
+                  <option value="AWS Cloud Computing">
+                    AWS Cloud Computing
+                  </option>
+                  <option value="Internet of Things (IoT)">
+                    Internet of Things (IoT)
+                  </option>
+                  <option value="BlockChain Technology">
+                    BlockChain Technology
+                  </option>
+                  <option value="Full Stack Web Development">
+                    Full Stack Web Development (MCSA)
+                  </option>
+                </>
+              )}
+            </select>
+          </div>
+          <div className="mb-3">
+            <label
+              htmlFor="Second Course Status"
+              className="form-label fw-bold"
+            >
+              Second Course Status
+            </label>
+            <select
+              onChange={this.handleAnotherLMS}
+              name="secondCourseStatus"
+              value={this.state.secondCourseStatus}
+              className="form-select"
+              id="Second Course Status"
+            >
+              <option value="">Choose</option>
+              <option value={true}>Open</option>
+              <option value={false}>Close</option>
+            </select>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="Third Course" className="form-label fw-bold">
+              Third Course
+            </label>
+            {/* <input
                   type="text"
                   disabled
                   name="thirdCourseTitle"
@@ -1662,32 +1660,33 @@ class Edit extends Component {
                   id="Third Course"
                 /> */}
 
-                <select
-                  name="thirdCourseTitle"
-                  onChange={this.handleThirdCourseTitle}
-                  value={this.state.thirdCourseTitle}
-                  className="form-select"
-                  id="Third Course"
-                >
-                  <option value="Fast Track Technical Program">
-                    Fast Track Technical Program
-                  </option>
-                  <option value="Fast Track Non-Technical Program">
-                    Fast Track Non-Technical Program
-                  </option>
-                  <option value="Associate Certification Program">
-                    Associate Certification Program
-                  </option>
-                </select>
-              </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="Third Course Category"
-                  className="form-label fw-bold"
-                >
-                  Third Course Category
-                </label>
-                {/* <input
+            <select
+              name="thirdCourseTitle"
+              onChange={this.handleThirdCourseTitle}
+              value={this.state.thirdCourseTitle}
+              className="form-select"
+              id="Third Course"
+            >
+              <option value="">Choose</option>
+              <option value="Fast Track Technical Program">
+                Fast Track Technical Program
+              </option>
+              <option value="Fast Track Non-Technical Program">
+                Fast Track Non-Technical Program
+              </option>
+              <option value="Associate Certification Program">
+                Associate Certification Program
+              </option>
+            </select>
+          </div>
+          <div className="mb-3">
+            <label
+              htmlFor="Third Course Category"
+              className="form-label fw-bold"
+            >
+              Third Course Category
+            </label>
+            {/* <input
                   type="text"
                   name="thirdCourseName"
                   disabled
@@ -1697,190 +1696,187 @@ class Edit extends Component {
                   id="Third Course Category"
                 /> */}
 
-                <select
-                  onChange={this.handleThirdCourseName}
-                  value={this.state.thirdCourseName}
-                  name="thirdCourseName"
-                  className="form-select"
-                  id="Third Course Category"
-                >
-                  {this.state.thirdCourseTitle ===
-                    "Fast Track Technical Program" && (
-                    <>
-                      <option value="">Choose</option>
-                      <option value="CompTIA It Fundamentals">
-                        CompTIA It Fundamentals
-                      </option>
-                      <option value="Microsoft Front End Development">
-                        Microsoft Front End Development
-                      </option>
-                      <option value="ASP.NET Web Applications">
-                        ASP.NET Web Applications
-                      </option>
-                      <option value="PHP Laravel">PHP Laravel</option>
-                      <option value="MERN Stack">MERN Stack</option>
-                      <option value="SQL Server Specialist">
-                        SQL Server Specialist
-                      </option>
-                      <option value="Oracle Database Administrator (OCP : 12C DBA)">
-                        Oracle Database Administrator (OCP : 12C DBA)
-                      </option>
-                      <option value="Android Apps Development">
-                        Android Apps Development
-                      </option>
-                      <option value="Kotlin Mobile Apps Development">
-                        Kotlin Mobile Apps Development
-                      </option>
-                      <option value="IOS Apps Development">
-                        IOS Apps Development
-                      </option>
-                      <option value="Xamarin Mobile Apps Development">
-                        Xamarin Mobile Apps Development
-                      </option>
-                      <option value="React Native Web &amp; Apps Development">
-                        React Native Web &amp; Apps Development
-                      </option>
-                      <option value="Game Development">Game Development</option>
-                      <option value="Cisco CCNA Networking">
-                        Cisco CCNA Networking
-                      </option>
-                      <option value="CompTIA Security + (SYO - 601)">
-                        CompTIA Security + (SYO - 601)
-                      </option>
-                      <option value="Certified Ethical Hacking">
-                        Certified Ethical Hacking
-                      </option>
-                      <option value="Certified Hacking Forensic Investigator">
-                        Certified Hacking Forensic Investigator
-                      </option>
-                      <option value="Penetration Testing Security Analyst">
-                        Penetration Testing Security Analyst
-                      </option>
-                      <option value="Certified Information System Auditor">
-                        Certified Information System Auditor
-                      </option>
-                      <option value="Certified Information Security Manager">
-                        Certified Information Security Manager
-                      </option>
-                      <option value="AWS Practitioner">AWS Practitioner</option>
-                      <option value="AWS Solution Architect">
-                        AWS Solution Architect
-                      </option>
-                      <option value="AWS SysOps Administrator">
-                        AWS SysOps Administrator
-                      </option>
-                      <option value="AWS Developer Associate">
-                        AWS Developer Associate
-                      </option>
-                      <option value="Microsoft Azure Cloud Fundamentals">
-                        Microsoft Azure Cloud Fundamentals
-                      </option>
-                      <option value="Microsoft Cloud Administrator 103 - 104">
-                        Microsoft Cloud Administrator 103 - 104
-                      </option>
-                      <option value="Google Cloud Engineer">
-                        Google Cloud Engineer
-                      </option>
-                      <option value="Python For Everyone">
-                        Python for Everyone
-                      </option>
-                      <option value="Machine Learning &amp; AI">
-                        Machine Learning &amp; AI
-                      </option>
-                      <option value="Data Science">Data Science</option>
-                      <option value="Big Data &amp; Headoop Ecosystem">
-                        Big Data &amp; Headoop Ecosystem
-                      </option>
-                    </>
-                  )}
-                  {this.state.thirdCourseTitle ===
-                    "Fast Track Non-Technical Program" && (
-                    <>
-                      <option value="">Choose</option>
-                      <option value="QuickBooks ERP">QuickBooks ERP</option>
-                      <option value="SAP ERP">SAP ERP</option>
-                      <option value="Project Management Professional (PMP)">
-                        Project Management Professional (PMP)
-                      </option>
-                      <option value="Amazon FBA Business">
-                        Amazon FBA Business
-                      </option>
-                      <option value="Search Engine Optimization (SEO)">
-                        Search Engine Optimization (SEO)
-                      </option>
-                      <option value="Digital Marketing">
-                        Digital Marketing
-                      </option>
-                      <option value="Social Media Marketing">
-                        Social Media Marketing
-                      </option>
-                      <option value="Graphics Design">Graphic Design</option>
-                      <option value="UI / UX Design">UI / UX Design</option>
-                      <option value="Interior Design">Interior Design</option>
-                      <option value="3D Maya Max Animation">
-                        3D Maya Max Animation
-                      </option>
-                      <option value="Video Editing">Video Editing</option>
-                      <option value="AutoCad">AutoCad</option>
-                      <option value="Microsoft Office 365">
-                        Microsoft Office 365
-                      </option>
-                      <option value="Enterpreneurship">Enterpreneurship</option>
-                    </>
-                  )}
-                  {this.state.thirdCourseTitle ===
-                    "Associate Certification Program" && (
-                    <>
-                      <option value="">Choose</option>
-                      <option value="Digital Forensic Cyber Security">
-                        Digital Forensic Cyber Security
-                      </option>
-                      <option value="Penetration Testing Cyber Security">
-                        Penetration Testing Cyber Security
-                      </option>
-                      <option value="CISSP Cyber Security Professional">
-                        CISSP Cyber Security Professional
-                      </option>
-                      <option value="Artificial Intelligence">
-                        Artificial Intelligence
-                      </option>
-                      <option value="AWS Cloud Computing">
-                        AWS Cloud Computing
-                      </option>
-                      <option value="Internet of Things (IoT)">
-                        Internet of Things (IoT)
-                      </option>
-                      <option value="BlockChain Technology">
-                        BlockChain Technology
-                      </option>
-                      <option value="Full Stack Web Development">
-                        Full Stack Web Development (MCSA)
-                      </option>
-                    </>
-                  )}
-                </select>
-              </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="Third Course Status"
-                  className="form-label fw-bold"
-                >
-                  Third Course Status
-                </label>
-                <select
-                  value={this.state.thirdCourseStatus}
-                  className="form-select"
-                  name="thirdCourseStatus"
-                  onChange={this.handleAnotherLMS}
-                  id="Third Course Status"
-                >
+            <select
+              onChange={this.handleThirdCourseName}
+              value={this.state.thirdCourseName}
+              name="thirdCourseName"
+              className="form-select"
+              id="Third Course Category"
+            >
+              {this.state.thirdCourseTitle === "" && (
+                <option value="">Choose</option>
+              )}
+              {this.state.thirdCourseTitle ===
+                "Fast Track Technical Program" && (
+                <>
                   <option value="">Choose</option>
-                  <option value={true}>Open</option>
-                  <option value={false}>Close</option>
-                </select>
-              </div>
-            </>
-          )}
+                  <option value="CompTIA It Fundamentals">
+                    CompTIA It Fundamentals
+                  </option>
+                  <option value="Microsoft Front End Development">
+                    Microsoft Front End Development
+                  </option>
+                  <option value="ASP.NET Web Applications">
+                    ASP.NET Web Applications
+                  </option>
+                  <option value="PHP Laravel">PHP Laravel</option>
+                  <option value="MERN Stack">MERN Stack</option>
+                  <option value="SQL Server Specialist">
+                    SQL Server Specialist
+                  </option>
+                  <option value="Oracle Database Administrator (OCP : 12C DBA)">
+                    Oracle Database Administrator (OCP : 12C DBA)
+                  </option>
+                  <option value="Android Apps Development">
+                    Android Apps Development
+                  </option>
+                  <option value="Kotlin Mobile Apps Development">
+                    Kotlin Mobile Apps Development
+                  </option>
+                  <option value="IOS Apps Development">
+                    IOS Apps Development
+                  </option>
+                  <option value="Xamarin Mobile Apps Development">
+                    Xamarin Mobile Apps Development
+                  </option>
+                  <option value="React Native Web &amp; Apps Development">
+                    React Native Web &amp; Apps Development
+                  </option>
+                  <option value="Game Development">Game Development</option>
+                  <option value="Cisco CCNA Networking">
+                    Cisco CCNA Networking
+                  </option>
+                  <option value="CompTIA Security + (SYO - 601)">
+                    CompTIA Security + (SYO - 601)
+                  </option>
+                  <option value="Certified Ethical Hacking">
+                    Certified Ethical Hacking
+                  </option>
+                  <option value="Certified Hacking Forensic Investigator">
+                    Certified Hacking Forensic Investigator
+                  </option>
+                  <option value="Penetration Testing Security Analyst">
+                    Penetration Testing Security Analyst
+                  </option>
+                  <option value="Certified Information System Auditor">
+                    Certified Information System Auditor
+                  </option>
+                  <option value="Certified Information Security Manager">
+                    Certified Information Security Manager
+                  </option>
+                  <option value="AWS Practitioner">AWS Practitioner</option>
+                  <option value="AWS Solution Architect">
+                    AWS Solution Architect
+                  </option>
+                  <option value="AWS SysOps Administrator">
+                    AWS SysOps Administrator
+                  </option>
+                  <option value="AWS Developer Associate">
+                    AWS Developer Associate
+                  </option>
+                  <option value="Microsoft Azure Cloud Fundamentals">
+                    Microsoft Azure Cloud Fundamentals
+                  </option>
+                  <option value="Microsoft Cloud Administrator 103 - 104">
+                    Microsoft Cloud Administrator 103 - 104
+                  </option>
+                  <option value="Google Cloud Engineer">
+                    Google Cloud Engineer
+                  </option>
+                  <option value="Python For Everyone">
+                    Python for Everyone
+                  </option>
+                  <option value="Machine Learning &amp; AI">
+                    Machine Learning &amp; AI
+                  </option>
+                  <option value="Data Science">Data Science</option>
+                  <option value="Big Data &amp; Headoop Ecosystem">
+                    Big Data &amp; Headoop Ecosystem
+                  </option>
+                </>
+              )}
+              {this.state.thirdCourseTitle ===
+                "Fast Track Non-Technical Program" && (
+                <>
+                  <option value="">Choose</option>
+                  <option value="QuickBooks ERP">QuickBooks ERP</option>
+                  <option value="SAP ERP">SAP ERP</option>
+                  <option value="Project Management Professional (PMP)">
+                    Project Management Professional (PMP)
+                  </option>
+                  <option value="Amazon FBA Business">
+                    Amazon FBA Business
+                  </option>
+                  <option value="Search Engine Optimization (SEO)">
+                    Search Engine Optimization (SEO)
+                  </option>
+                  <option value="Digital Marketing">Digital Marketing</option>
+                  <option value="Social Media Marketing">
+                    Social Media Marketing
+                  </option>
+                  <option value="Graphics Design">Graphic Design</option>
+                  <option value="UI / UX Design">UI / UX Design</option>
+                  <option value="Interior Design">Interior Design</option>
+                  <option value="3D Maya Max Animation">
+                    3D Maya Max Animation
+                  </option>
+                  <option value="Video Editing">Video Editing</option>
+                  <option value="AutoCad">AutoCad</option>
+                  <option value="Microsoft Office 365">
+                    Microsoft Office 365
+                  </option>
+                  <option value="Enterpreneurship">Enterpreneurship</option>
+                </>
+              )}
+              {this.state.thirdCourseTitle ===
+                "Associate Certification Program" && (
+                <>
+                  <option value="">Choose</option>
+                  <option value="Digital Forensic Cyber Security">
+                    Digital Forensic Cyber Security
+                  </option>
+                  <option value="Penetration Testing Cyber Security">
+                    Penetration Testing Cyber Security
+                  </option>
+                  <option value="CISSP Cyber Security Professional">
+                    CISSP Cyber Security Professional
+                  </option>
+                  <option value="Artificial Intelligence">
+                    Artificial Intelligence
+                  </option>
+                  <option value="AWS Cloud Computing">
+                    AWS Cloud Computing
+                  </option>
+                  <option value="Internet of Things (IoT)">
+                    Internet of Things (IoT)
+                  </option>
+                  <option value="BlockChain Technology">
+                    BlockChain Technology
+                  </option>
+                  <option value="Full Stack Web Development">
+                    Full Stack Web Development (MCSA)
+                  </option>
+                </>
+              )}
+            </select>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="Third Course Status" className="form-label fw-bold">
+              Third Course Status
+            </label>
+            <select
+              value={this.state.thirdCourseStatus}
+              className="form-select"
+              name="thirdCourseStatus"
+              onChange={this.handleAnotherLMS}
+              id="Third Course Status"
+            >
+              <option value="">Choose</option>
+              <option value={true}>Open</option>
+              <option value={false}>Close</option>
+            </select>
+          </div>
+
           <div className="my-3 d-flex justify-content-center">
             <Button
               type="submit"
