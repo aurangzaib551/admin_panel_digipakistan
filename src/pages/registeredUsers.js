@@ -139,6 +139,14 @@ class SMS extends Component {
       this.setState({ searchResult: students, allow: false });
     };
 
+    const handleEnroll = () => {
+      const students = this.state.searchData.filter(
+        (doc) => doc.data.lms === true
+      );
+
+      this.setState({ searchResult: students, allow: false });
+    };
+
     const handleSearch = () => {
       const that = this;
       const students = this.state.searchData.filter(
@@ -199,6 +207,13 @@ class SMS extends Component {
               onClick={handleApplicationSubmitted}
             >
               Application Submitted Data
+            </Button>
+            <Button
+              className="outline me-sm-2 text-nowrap"
+              variant="outlined"
+              onClick={handleEnroll}
+            >
+              Enrolled Students In LMS
             </Button>
             <Button
               className="outline me-sm-2 text-nowrap"
