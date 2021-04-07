@@ -16,7 +16,7 @@ import Paper from "@material-ui/core/Paper";
 import MenuItem from "@material-ui/core/MenuItem";
 import Input from "@material-ui/core/TextField";
 
-class SMS extends Component {
+class RegisteredUsers extends Component {
   state = {
     students: [],
     lastVisible: "",
@@ -396,4 +396,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SMS);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisteredUsers);

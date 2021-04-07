@@ -9,6 +9,10 @@ const RegisteredUsers = lazy(() => import("./pages/registeredUsers"));
 const Edit = lazy(() => import("./pages/edit"));
 const UploadLecture = lazy(() => import("./pages/uploadLecture"));
 const Teachers = lazy(() => import("./pages/teachers"));
+const MarketingEdit = lazy(() => import("./pages/marketingEdit"));
+const MarketingWithDrawalRequests = lazy(() =>
+  import("./pages/marketingWithDrawalRequests")
+);
 
 const App = () => {
   return (
@@ -19,7 +23,12 @@ const App = () => {
         <Route path="/applicants" component={ApplicantsData} />
         <Route path="/registeredUser" component={RegisteredUsers} />
         <Route path="/teachers" component={Teachers} />
+        <Route path="/marketing" component={MarketingWithDrawalRequests} />
         <Route path="/edit/:id" component={Edit} />
+        <Route
+          path="/marketingEdit/:id/:name/:amount"
+          component={MarketingEdit}
+        />
         <Route path="/uploadLecture" component={UploadLecture} />
         <Route path="/not-found" component={NotFound} />
         <Redirect to="/not-found" />
