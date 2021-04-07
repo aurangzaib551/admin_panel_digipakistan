@@ -13,11 +13,17 @@ import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import Paper from "@material-ui/core/Paper";
+import { password } from "../config/fbConfigPassword";
+import { Alert } from "@material-ui/lab";
 
 class MarketingWithDrawalRequests extends Component {
   state = {
     data: [],
     loading: false,
+    correct: false,
+    password: "",
+    passwordLoading: false,
+    msg: "",
   };
 
   componentDidMount() {
@@ -43,13 +49,42 @@ class MarketingWithDrawalRequests extends Component {
       });
   }
 
+  handlePassword = (e) => {
+    this.setState({ password: e.target.value });
+  };
+
+  handlePasswordSubmit = (e) => {
+    e.preventDefault();
+
+    this.setState({ passwordLoading: true, msg: "" });
+
+    password
+      .database()
+      .ref()
+      .child("/Marketing Requests")
+      .on("value", (snap) => {
+        if (snap.exists) {
+          if (snap.val().password === this.state.password) {
+            this.setState({ correct: true, passwordLoading: false });
+          } else {
+            this.setState({
+              msg: "Something is not correct",
+              passwordLoading: false,
+            });
+          }
+        } else {
+          this.setState({ passwordLoading: false });
+        }
+      });
+  };
+
   render() {
     // Object Destructuring
     const { uid, history } = this.props;
 
     if (!uid) return <Redirect to="/" />;
 
-    return (
+    return this.state.correct ? (
       <React.Fragment>
         <Nav />
 
@@ -159,6 +194,46 @@ class MarketingWithDrawalRequests extends Component {
           </Table>
         </TableContainer>
       </React.Fragment>
+    ) : (
+      <>
+        <Nav />
+        <form className="m-5" onSubmit={this.handlePasswordSubmit}>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label fw-bold">
+              Password
+            </label>
+            <input
+              type="password"
+              onChange={this.handlePassword}
+              value={this.state.password}
+              name="password"
+              placeholder="Enter the password"
+              className="form-control"
+              id="password"
+            />
+          </div>
+
+          {this.state.msg && (
+            <Alert severity="error" variant="outlined">
+              {this.state.msg}
+            </Alert>
+          )}
+
+          <div className="my-3 d-flex justify-content-center">
+            <Button
+              type="submit"
+              variant="contained"
+              className="outline"
+              color="primary"
+            >
+              {this.state.passwordLoading && (
+                <CircularProgress className="loader me-2" />
+              )}
+              {this.state.passwordLoading ? "Checking Password..." : "Check"}
+            </Button>
+          </div>
+        </form>
+      </>
     );
   }
 }

@@ -15,6 +15,8 @@ import TableCell from "@material-ui/core/TableCell";
 import Paper from "@material-ui/core/Paper";
 import MenuItem from "@material-ui/core/MenuItem";
 import Input from "@material-ui/core/TextField";
+import { password } from "../config/fbConfigPassword";
+import { Alert } from "@material-ui/lab";
 
 class RegisteredUsers extends Component {
   state = {
@@ -30,6 +32,10 @@ class RegisteredUsers extends Component {
     totalStudents: [],
     loading: false,
     option: "",
+    correct: false,
+    password: "",
+    passwordLoading: false,
+    msg: "",
   };
 
   componentDidMount() {
@@ -74,6 +80,35 @@ class RegisteredUsers extends Component {
       }, 400);
     }
   }
+
+  handlePassword = (e) => {
+    this.setState({ password: e.target.value });
+  };
+
+  handlePasswordSubmit = (e) => {
+    e.preventDefault();
+
+    this.setState({ passwordLoading: true, msg: "" });
+
+    password
+      .database()
+      .ref()
+      .child("/Registered Users")
+      .on("value", (snap) => {
+        if (snap.exists) {
+          if (snap.val().password === this.state.password) {
+            this.setState({ correct: true, passwordLoading: false });
+          } else {
+            this.setState({
+              msg: "Something is not correct",
+              passwordLoading: false,
+            });
+          }
+        } else {
+          this.setState({ passwordLoading: false });
+        }
+      });
+  };
 
   handlePageNext = () => {
     const that = this;
@@ -163,7 +198,7 @@ class RegisteredUsers extends Component {
     const handleBack = () => {
       this.setState({ allow: true, searchResult: [] });
     };
-    return (
+    return this.state.correct ? (
       <React.Fragment>
         <Nav />
         <div className="m-3 d-flex flex-column align-items-center">
@@ -377,6 +412,46 @@ class RegisteredUsers extends Component {
           </div>
         )}
       </React.Fragment>
+    ) : (
+      <>
+        <Nav />
+        <form className="m-5" onSubmit={this.handlePasswordSubmit}>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label fw-bold">
+              Password
+            </label>
+            <input
+              type="password"
+              onChange={this.handlePassword}
+              value={this.state.password}
+              name="password"
+              placeholder="Enter the password"
+              className="form-control"
+              id="password"
+            />
+          </div>
+
+          {this.state.msg && (
+            <Alert severity="error" variant="outlined">
+              {this.state.msg}
+            </Alert>
+          )}
+
+          <div className="my-3 d-flex justify-content-center">
+            <Button
+              type="submit"
+              variant="contained"
+              className="outline"
+              color="primary"
+            >
+              {this.state.passwordLoading && (
+                <CircularProgress className="loader me-2" />
+              )}
+              {this.state.passwordLoading ? "Checking Password..." : "Check"}
+            </Button>
+          </div>
+        </form>
+      </>
     );
   }
 }

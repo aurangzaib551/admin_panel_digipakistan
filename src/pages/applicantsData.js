@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import lms from "../config/fbConfig";
+import { password } from "../config/fbConfigPassword";
 import Nav from "../components/dashboard/nav";
 import { signOut } from "../store/actions/authActions";
 import { connect } from "react-redux";
@@ -16,6 +17,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import Paper from "@material-ui/core/Paper";
 import MenuItem from "@material-ui/core/MenuItem";
+import { Alert } from "@material-ui/lab";
 
 class SMS extends Component {
   state = {
@@ -30,6 +32,10 @@ class SMS extends Component {
     totalStudents: [],
     loading: false,
     option: "",
+    correct: false,
+    password: "",
+    passwordLoading: false,
+    msg: "",
   };
 
   componentDidMount() {
@@ -124,6 +130,35 @@ class SMS extends Component {
     this.setState({ search: e.target.value });
   };
 
+  handlePassword = (e) => {
+    this.setState({ password: e.target.value });
+  };
+
+  handlePasswordSubmit = (e) => {
+    e.preventDefault();
+
+    this.setState({ passwordLoading: true, msg: "" });
+
+    password
+      .database()
+      .ref()
+      .child("/Application Data")
+      .on("value", (snap) => {
+        if (snap.exists) {
+          if (snap.val().password === this.state.password) {
+            this.setState({ correct: true, passwordLoading: false });
+          } else {
+            this.setState({
+              msg: "Something is not correct",
+              passwordLoading: false,
+            });
+          }
+        } else {
+          this.setState({ passwordLoading: false });
+        }
+      });
+  };
+
   render() {
     const { uid } = this.props;
 
@@ -169,7 +204,7 @@ class SMS extends Component {
       const allEmails = arr.join();
     };
 
-    return (
+    return this.state.correct ? (
       <React.Fragment>
         <Nav />
         <div className="m-3 d-flex flex-column align-items-center">
@@ -348,6 +383,46 @@ class SMS extends Component {
           </div>
         )}
       </React.Fragment>
+    ) : (
+      <>
+        <Nav />
+        <form className="m-5" onSubmit={this.handlePasswordSubmit}>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label fw-bold">
+              Password
+            </label>
+            <input
+              type="password"
+              onChange={this.handlePassword}
+              value={this.state.password}
+              name="password"
+              placeholder="Enter the password"
+              className="form-control"
+              id="password"
+            />
+          </div>
+
+          {this.state.msg && (
+            <Alert severity="error" variant="outlined">
+              {this.state.msg}
+            </Alert>
+          )}
+
+          <div className="my-3 d-flex justify-content-center">
+            <Button
+              type="submit"
+              variant="contained"
+              className="outline"
+              color="primary"
+            >
+              {this.state.passwordLoading && (
+                <CircularProgress className="loader me-2" />
+              )}
+              {this.state.passwordLoading ? "Checking Password..." : "Check"}
+            </Button>
+          </div>
+        </form>
+      </>
     );
   }
 }
