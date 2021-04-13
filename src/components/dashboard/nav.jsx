@@ -17,6 +17,7 @@ import { signOut } from "../../store/actions/authActions";
 import Button from "@material-ui/core/Button";
 import HomeIcon from "@material-ui/icons/Home";
 import SchoolIcon from "@material-ui/icons/School";
+import RatingsIcon from "@material-ui/icons/StarRounded";
 
 const Nav = ({ signOut }) => {
   // State
@@ -89,6 +90,12 @@ const Nav = ({ signOut }) => {
                 <ApplicationIcon />
               </ListItemIcon>
               <ListItemText>Applicants Data</ListItemText>
+            </ListItem>
+            <ListItem button onClick={() => go("/ratings")}>
+              <ListItemIcon>
+                <RatingsIcon />
+              </ListItemIcon>
+              <ListItemText>Ratings</ListItemText>
             </ListItem>
             <ListItem button onClick={() => go("/registeredUser")}>
               <ListItemIcon>

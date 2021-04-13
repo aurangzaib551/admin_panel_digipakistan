@@ -295,7 +295,7 @@ class RegisteredUsers extends Component {
                         Application Submitted
                       </TableCell>
                       <TableCell className="fw-bold text-nowrap">
-                        Action
+                        Actions
                       </TableCell>
                     </TableRow>
                   </TableHead>
@@ -320,11 +320,19 @@ class RegisteredUsers extends Component {
                           <TableCell className="text-nowrap">
                             <Button
                               onClick={() => history.push(`/edit/${val.id}`)}
-                              className="outline"
+                              className="outline me-2"
                               variant="contained"
                               color="primary"
                             >
                               Edit
+                            </Button>
+                            <Button
+                              onClick={() => history.push(`/view/${val.id}`)}
+                              className="outline"
+                              variant="contained"
+                              color="primary"
+                            >
+                              View
                             </Button>
                           </TableCell>
                         </TableRow>
@@ -352,7 +360,7 @@ class RegisteredUsers extends Component {
                         Application Submitted
                       </TableCell>
                       <TableCell className="fw-bold text-nowrap">
-                        Action
+                        Actions
                       </TableCell>
                     </TableRow>
                   </TableHead>
@@ -377,11 +385,19 @@ class RegisteredUsers extends Component {
                           <TableCell className="text-nowrap">
                             <Button
                               onClick={() => history.push(`/edit/${val.id}`)}
-                              className="outline"
+                              className="outline me-2"
                               variant="contained"
                               color="primary"
                             >
                               Edit
+                            </Button>
+                            <Button
+                              onClick={() => history.push(`/view/${val.id}`)}
+                              className="outline"
+                              variant="contained"
+                              color="primary"
+                            >
+                              View
                             </Button>
                           </TableCell>
                         </TableRow>
