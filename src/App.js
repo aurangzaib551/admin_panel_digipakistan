@@ -15,6 +15,7 @@ const Ratings = lazy(() => import("./pages/ratings"));
 const MarketingWithDrawalRequests = lazy(() =>
   import("./pages/marketingWithDrawalRequests")
 );
+const MarketingUsers = lazy(() => import("./pages/marketingUsers"));
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/registeredUser" component={RegisteredUsers} />
         <Route path="/teachers" component={Teachers} />
         <Route path="/marketing" component={MarketingWithDrawalRequests} />
+        <Route path="/marketingUsers" component={MarketingUsers} />
         <Route path="/ratings" component={Ratings} />
         <Route path="/edit/:id" component={Edit} />
         <Route path="/view/:id" component={View} />

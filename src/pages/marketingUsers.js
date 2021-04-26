@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { marketing } from "../config/fbConfigMarketing";
+import { marketingUsers } from "../config/fbConfigMarketingUsers";
 import Nav from "../components/dashboard/nav";
 import { signOut } from "../store/actions/authActions";
 import { connect } from "react-redux";
@@ -15,8 +15,9 @@ import TableCell from "@material-ui/core/TableCell";
 import Paper from "@material-ui/core/Paper";
 import { password } from "../config/fbConfigPassword";
 import { Alert } from "@material-ui/lab";
+import firebase from "../config/fbConfig";
 
-class MarketingUsers extends Component {
+class MarketingWithDrawalRequests extends Component {
   state = {
     data: [],
     loading: false,
@@ -30,22 +31,20 @@ class MarketingUsers extends Component {
     const that = this;
     this.setState({ loading: true });
 
-    marketing
-      .database()
-      .ref()
-      .on("value", (snapshot) => {
-        if (snapshot.exists) {
-          const data = [];
-          snapshot.forEach((doc) => {
-            data.push({
-              id: doc.key,
-              data: doc.val(),
-            });
-            that.setState({ loading: false, data });
-          });
-        } else {
-          that.setState({ loading: false });
-        }
+    marketingUsers
+      .firestore()
+      .collection("users")
+      .get()
+      .then((data1) => {
+        const data = [];
+        data1.forEach((doc) => {
+          if (doc.exists) {
+            data.push(doc.data());
+            that.setState({ data, loading: false });
+          } else {
+            that.setState({ loading: false });
+          }
+        });
       });
   }
 
@@ -104,6 +103,9 @@ class MarketingUsers extends Component {
                   <TableCell className="fw-bold text-nowrap">
                     Full Name
                   </TableCell>
+                  <TableCell className="fw-bold text-nowrap">
+                    Referral Code
+                  </TableCell>
                   <TableCell className="fw-bold text-nowrap">Email</TableCell>
                   <TableCell className="fw-bold text-nowrap">
                     Mobile #
@@ -120,17 +122,6 @@ class MarketingUsers extends Component {
                   <TableCell className="fw-bold text-nowrap">
                     Bank Name
                   </TableCell>
-                  <TableCell className="fw-bold text-nowrap">
-                    Branch Address
-                  </TableCell>
-                  <TableCell className="fw-bold text-nowrap">
-                    Branch Code
-                  </TableCell>
-                  <TableCell className="fw-bold text-nowrap">
-                    Total Amount
-                  </TableCell>
-                  <TableCell className="fw-bold text-nowrap">Message</TableCell>
-                  <TableCell className="fw-bold text-nowrap">Action</TableCell>
                 </TableRow>
               </TableHead>
             )}
@@ -139,53 +130,27 @@ class MarketingUsers extends Component {
                 this.state.data.map((val, ind) => {
                   return (
                     <TableRow key={ind}>
+                      <TableCell className="text-nowrap">{val.name}</TableCell>
                       <TableCell className="text-nowrap">
-                        {val.data.Name}
+                        {val.referralCode}
                       </TableCell>
                       <TableCell className="text-nowrap">
-                        {val.data.Email}
+                        {val.emailAddress}
                       </TableCell>
                       <TableCell className="text-nowrap">
-                        {val.data["Mobile Number"]}
+                        {val.mobileNumber}
                       </TableCell>
                       <TableCell className="text-nowrap">
-                        {val.data["Category of Account"]}
+                        {val.accountYouUse}
                       </TableCell>
                       <TableCell className="text-nowrap">
-                        {val.data["Account TItle"]}
+                        {val.accountTitle}
                       </TableCell>
                       <TableCell className="text-nowrap">
-                        {val.data["Account Number"]}
+                        {val.accountNumber}
                       </TableCell>
                       <TableCell className="text-nowrap">
-                        {val.data["Bank Name"]}
-                      </TableCell>
-                      <TableCell className="text-nowrap">
-                        {val.data["Branch Address"]}
-                      </TableCell>
-                      <TableCell className="text-nowrap">
-                        {val.data["Branch Code"]}
-                      </TableCell>
-                      <TableCell className="text-nowrap">
-                        {val.data["Total Amount"]}
-                      </TableCell>
-                      <TableCell className="text-nowrap">
-                        {val.data["Message"]}
-                      </TableCell>
-
-                      <TableCell className="text-nowrap">
-                        <Button
-                          onClick={() =>
-                            history.push(
-                              `/marketingEdit/${val.id}/${val.data.Name}/${val.data["Total Amount"]}`
-                            )
-                          }
-                          className="outline"
-                          variant="contained"
-                          color="primary"
-                        >
-                          Edit
-                        </Button>
+                        {val.bankName}
                       </TableCell>
                     </TableRow>
                   );
@@ -253,4 +218,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MarketingUsers);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MarketingWithDrawalRequests);
