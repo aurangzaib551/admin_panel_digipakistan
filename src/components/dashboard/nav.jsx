@@ -18,6 +18,7 @@ import Button from "@material-ui/core/Button";
 import HomeIcon from "@material-ui/icons/Home";
 import SchoolIcon from "@material-ui/icons/School";
 import RatingsIcon from "@material-ui/icons/StarRounded";
+import BellIcon from "@material-ui/icons/NotificationsRounded";
 
 const Nav = ({ signOut }) => {
   // State
@@ -120,6 +121,12 @@ const Nav = ({ signOut }) => {
                 <SchoolIcon />
               </ListItemIcon>
               <ListItemText>Upload Lecture</ListItemText>
+            </ListItem>
+            <ListItem button onClick={() => go("/sendNotification")}>
+              <ListItemIcon>
+                <BellIcon />
+              </ListItemIcon>
+              <ListItemText>Send Notification</ListItemText>
             </ListItem>
             <ListItem button onClick={() => go("/teachers")}>
               <ListItemIcon>

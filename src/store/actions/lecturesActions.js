@@ -1,4 +1,10 @@
-export const uploadLecture = (collection, topic, subTopic, video) => {
+export const uploadLecture = (
+  collection,
+  topic,
+  subTopic,
+  video,
+  notification
+) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
 
@@ -18,6 +24,7 @@ export const uploadLecture = (collection, topic, subTopic, video) => {
         firestore.collection("Notifications").add({
           name: `${collection} lecture has been uploaded`,
           createdAt: new Date(),
+          course: notification,
         });
       })
       .then(() =>
@@ -29,7 +36,7 @@ export const uploadLecture = (collection, topic, subTopic, video) => {
   };
 };
 
-export const updateLecture = (watch, collection, topic) => {
+export const updateLecture = (watch, collection, topic, notification) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     if (watch) {
@@ -43,6 +50,7 @@ export const updateLecture = (watch, collection, topic) => {
           firestore.collection("Notifications").add({
             name: `${collection} lecture has been uploaded`,
             createdAt: new Date(),
+            course: notification,
           });
         })
         .then(() =>

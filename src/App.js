@@ -11,6 +11,7 @@ const UploadLecture = lazy(() => import("./pages/uploadLecture"));
 const Teachers = lazy(() => import("./pages/teachers"));
 const MarketingEdit = lazy(() => import("./pages/marketingEdit"));
 const View = lazy(() => import("./pages/view"));
+const SN = lazy(() => import("./pages/sendNotification"));
 const Ratings = lazy(() => import("./pages/ratings"));
 const MarketingWithDrawalRequests = lazy(() =>
   import("./pages/marketingWithDrawalRequests")
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/marketing" component={MarketingWithDrawalRequests} />
         <Route path="/marketingUsers" component={MarketingUsers} />
         <Route path="/ratings" component={Ratings} />
+        <Route path="/sendNotification" component={SN} />
         <Route path="/edit/:id" component={Edit} />
         <Route path="/view/:id" component={View} />
         <Route
