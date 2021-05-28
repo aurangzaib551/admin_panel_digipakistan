@@ -399,7 +399,7 @@ const Upload = (props) => {
               Artificial Intelligence
             </MenuItem>
             <MenuItem value="AWS Cloud Computing">AWS Cloud Computing</MenuItem>
-            <MenuItem value="Internet of Things (IoT)">
+            <MenuItem value="Internet of Things">
               Internet of Things (IoT)
             </MenuItem>
             <MenuItem value="BlockChain Technology">
