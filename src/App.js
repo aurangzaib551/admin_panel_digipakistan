@@ -17,6 +17,7 @@ const MarketingWithDrawalRequests = lazy(() =>
   import("./pages/marketingWithDrawalRequests")
 );
 const MarketingUsers = lazy(() => import("./pages/marketingUsers"));
+const CAL = lazy(() => import("./pages/createAssignmentLink"));
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/marketingUsers" component={MarketingUsers} />
         <Route path="/ratings" component={Ratings} />
         <Route path="/sendNotification" component={SN} />
+        <Route path="/createAssignmentLink" component={CAL} />
         <Route path="/edit/:id" component={Edit} />
         <Route path="/view/:id" component={View} />
         <Route

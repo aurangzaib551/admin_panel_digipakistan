@@ -19,6 +19,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import SchoolIcon from "@material-ui/icons/School";
 import RatingsIcon from "@material-ui/icons/StarRounded";
 import BellIcon from "@material-ui/icons/NotificationsRounded";
+import LinkIcon from "@material-ui/icons/Link";
 
 const Nav = ({ signOut }) => {
   // State
@@ -127,6 +128,12 @@ const Nav = ({ signOut }) => {
                 <BellIcon />
               </ListItemIcon>
               <ListItemText>Send Notification</ListItemText>
+            </ListItem>
+            <ListItem button onClick={() => go("/createAssignmentLink")}>
+              <ListItemIcon>
+                <LinkIcon />
+              </ListItemIcon>
+              <ListItemText>Create Assignment Link</ListItemText>
             </ListItem>
             <ListItem button onClick={() => go("/teachers")}>
               <ListItemIcon>
