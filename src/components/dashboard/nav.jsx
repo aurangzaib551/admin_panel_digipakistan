@@ -20,6 +20,7 @@ import SchoolIcon from "@material-ui/icons/School";
 import RatingsIcon from "@material-ui/icons/StarRounded";
 import BellIcon from "@material-ui/icons/NotificationsRounded";
 import LinkIcon from "@material-ui/icons/Link";
+import BookIcon from "@material-ui/icons/Book";
 
 const Nav = ({ signOut }) => {
   // State
@@ -134,6 +135,12 @@ const Nav = ({ signOut }) => {
                 <LinkIcon />
               </ListItemIcon>
               <ListItemText>Create Assignment Link</ListItemText>
+            </ListItem>
+            <ListItem button onClick={() => go("/createLearningMaterial")}>
+              <ListItemIcon>
+                <BookIcon />
+              </ListItemIcon>
+              <ListItemText>Create Learning Material</ListItemText>
             </ListItem>
             <ListItem button onClick={() => go("/teachers")}>
               <ListItemIcon>

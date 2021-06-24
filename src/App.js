@@ -18,6 +18,7 @@ const MarketingWithDrawalRequests = lazy(() =>
 );
 const MarketingUsers = lazy(() => import("./pages/marketingUsers"));
 const CAL = lazy(() => import("./pages/createAssignmentLink"));
+const CLM = lazy(() => import("./pages/createLearningMaterial"));
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/ratings" component={Ratings} />
         <Route path="/sendNotification" component={SN} />
         <Route path="/createAssignmentLink" component={CAL} />
+        <Route path="/createLearningMaterial" component={CLM} />
         <Route path="/edit/:id" component={Edit} />
         <Route path="/view/:id" component={View} />
         <Route
